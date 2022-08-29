@@ -416,7 +416,7 @@
         return response.json();
         })
         .then(function (payload) {
-					document.getElementById('country').innerHTML = payload.location.country.name ;
+        console.log(payload.location.country.name + ', ' + payload.location.city);
         });
 
 				getLocation();

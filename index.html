@@ -228,7 +228,7 @@
         </a>
       </div>
 </header>
-<body>
+<body onload="onLoad()">
     
       <aside class="sidebar"
       id="dropable" 
@@ -245,9 +245,6 @@
             <hr>
         </div>
         <div id="sidebar-content" class="sidebar-content">
-          <ul id="myList">
-
-          </ul>
         </div>
       </aside>
       <div class="content">
@@ -324,7 +321,7 @@
 
         var itemCount = 0;
         var total = 0;
-        let list = document.getElementById("myList");
+
         var items = [
         ];
 
@@ -386,49 +383,13 @@
             function onLoad(){
                 if (typeof(Storage) !== "undefined") {
                     if (localStorage.getItem("carrito") !== null){
-                        console.log(localStorage.getItem("carrito"));
-                        let list = document.getElementById("myList");
                         items = JSON.parse(localStorage.getItem("carrito"));
                     }
                 } else {
                     alert("Problemas con local storage");
                 }
-                
-                if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(function(position) {
-                  $.getJSON('http://ws.geonames.org/countryCode', {
-                      lat: position.coords.latitude,
-                      lng: position.coords.longitude,
-                      type: 'JSON'
-                  }, function(result) {
-                      alert(result.countryName);
-                  });
-                });
-              }​​
             }
 
-            function getLocation(){
-					if(navigator.geolocation){
-						navigator.geolocation.getCurrentPosition(showPosition);
-					}else{
-						alert('Geolocalización no soportada por le navegador')
-					}
-				}
-
-				function showPosition(position){
-					console.log(position);
-					latitud = position.coords.latitude;
-					longitud = position.coords.longitude;
-
-					document.getElementById('latitud').innerHTML = latitud ;
-					document.getElementById('longitud').innerHTML = longitud ;
-
-					console.log(latitud);
-					console.log(longitud);
-				}
-
-				getLocation();
-        onLoad();
         </script>
 </body>
 </html>

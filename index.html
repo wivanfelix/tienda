@@ -415,7 +415,7 @@
             cartContet.map((item, index) => {
                 if(prop == index){
                     item.count = item.count - 1;
-                    item.total = item.total - parseFloat(value);
+                    item.total = item.total - parseFloat(item.value);
                 }
                 newCart.push(item);
             });

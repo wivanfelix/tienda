@@ -383,8 +383,12 @@
         }
 
         function updateCart(){
-          document.getElementById('sidebar-content').innerHTML = document.getElementById('sidebar-content').innerHTML = '<ol><li>html data</li></ol>';;
-        }
+          let cartContet = JSON.parse(localStorage.getItem("carrito"));
+          let items = ''
+          cartContet.map((item, index) => {
+            items += ` <h1> ${index}. ${item.name} - ${item.artist} </h1> </br> <h2> Precio: ${item.value}  Cant> ${item.count}  Total:${item.total} </h2> </br></br>`;
+          })
+          document.getElementById('sidebar-content').innerHTML = document.getElementById('sidebar-content').innerHTML = `${items}`;
 
             function onLoad(){
                 if (typeof(Storage) !== "undefined") {

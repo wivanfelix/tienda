@@ -386,7 +386,7 @@
           let cartContet = JSON.parse(localStorage.getItem("carrito"));
           let items = ''
           cartContet.map((item, index) => {
-            items += ` <h1> ${index}. ${item.name} - ${item.artist} </h1> </br> <h2> Precio: ${item.value}  Cant> ${item.count}  Total:${item.total} </h2> </br></br>`;
+            items += ` <h5> ${index + 1}. ${item.name} - ${item.artist} </h5> </br> <h6> Precio: ${item.value}  Cant: ${item.count}  Total:${item.total} </h6> </br></br>`;
           })
           document.getElementById('sidebar-content').innerHTML = document.getElementById('sidebar-content').innerHTML = `${items}`;
 

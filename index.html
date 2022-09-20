@@ -389,17 +389,18 @@
             items += ` <h5> ${index + 1}. ${item.name} - ${item.artist} </h5> </br> <h6> Precio: ${item.value}  Cant: ${item.count}  Total:${item.total} </h6> </br></br>`;
           })
           document.getElementById('sidebar-content').innerHTML = document.getElementById('sidebar-content').innerHTML = `${items}`;
+        }
 
-            function onLoad(){
+        function onLoad(){
                 if (typeof(Storage) !== "undefined") {
                     if (localStorage.getItem("carrito") !== null){
                         items = JSON.parse(localStorage.getItem("carrito"));
+                        updateCart()
                     }
                 } else {
                     alert("Problemas con local storage");
                 }
             }
-        }
 
             function getLocation(){
 					if(navigator.geolocation){

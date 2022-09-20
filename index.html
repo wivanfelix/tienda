@@ -390,16 +390,16 @@
           let cartContet = JSON.parse(localStorage.getItem("carrito"));
           let items = ''
           cartContet.map((item, index) => {
-            items += ` <h5> ${index + 1}. ${item.name} - ${item.artist} </h5> </br> <h6 class="subItemInCart"> Precio: ${item.value}  Cant: ${item.count}  Total:${item.total} </h6> <button onClick="substractItem(${index})">Eliminar 1</button> <button onClick="clearItem(${index})">Eliminar todos</button> </br></br>`;
+            items += ` <h5> ${index + 1}. ${item.name} - ${item.artist} </h5> </br> <h6 class="subItemInCart"> Precio: ${item.value}  Cant: ${item.count}  Total:${item.total} </h6> </br> <div class="subItemInCart"> <button onClick="substractItem(${index})">Eliminar 1</button> <button onClick="clearItem(${index})">Eliminar todos</button> </div> </br></br>`;
           })
           document.getElementById('sidebar-content').innerHTML = document.getElementById('sidebar-content').innerHTML = `${items}`;
         }
 
-        function clearItem(item){
+        function clearItem(prop){
             let cartContet = JSON.parse(localStorage.getItem("carrito"));
             let newCart = [];
             cartContet.map((item, index) => {
-                if(item.id != id){
+                if(index != prop){
                     newCart.push(item);
                 }
             });
@@ -407,11 +407,11 @@
             updateCart();
         }
 
-        function substractItem(item){
+        function substractItem(prop){
             let cartContet = JSON.parse(localStorage.getItem("carrito"));
             let newCart = [];
             cartContet.map((item, index) => {
-                if(item.id == id){
+                if(prop == index){
                     item.count = item.count - 1;
                     item.total = item.total - parseFloat(value);
                 }

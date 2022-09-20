@@ -396,6 +396,7 @@
         }
 
         function clearItem(prop){
+          console.log(prop);
             let cartContet = JSON.parse(localStorage.getItem("carrito"));
             let newCart = [];
             cartContet.map((item, index) => {
@@ -408,6 +409,7 @@
         }
 
         function substractItem(prop){
+          console.log(prop);
             let cartContet = JSON.parse(localStorage.getItem("carrito"));
             let newCart = [];
             cartContet.map((item, index) => {

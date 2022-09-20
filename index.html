@@ -417,7 +417,9 @@
                     item.count = item.count - 1;
                     item.total = item.total - parseFloat(item.value);
                 }
-                newCart.push(item);
+                if(item.count > 0){
+                    newCart.push(item);
+                }
             });
             localStorage.setItem("carrito", JSON.stringify(newCart));
             items = newCart;

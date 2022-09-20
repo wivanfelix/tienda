@@ -405,11 +405,11 @@
                 }
             });
             localStorage.setItem("carrito", JSON.stringify(newCart));
+            items = newCart;
             updateCart();
         }
 
         function substractItem(prop){
-          console.log(prop);
             let cartContet = JSON.parse(localStorage.getItem("carrito"));
             let newCart = [];
             cartContet.map((item, index) => {
@@ -420,6 +420,7 @@
                 newCart.push(item);
             });
             localStorage.setItem("carrito", JSON.stringify(newCart));
+            items = newCart;
             updateCart();
         }
 
